@@ -1,0 +1,5 @@
+:root{--accent:#2f855a}
+body{font-family: 'Segoe UI', Roboto, Arial, sans-serif;background:#f7faf7}
+.card{border-radius:10px}
+.brand{font-weight:700;color:var(--accent)}
+footer{background:#fff;padding:12px 0;margin-top:24px}

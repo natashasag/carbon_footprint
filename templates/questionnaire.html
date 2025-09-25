@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow p-4">
+  <h3>Tell us about your routine</h3>
+  <p class="text-muted">Small estimates are okay — this is for awareness, not perfection.</p>
+  <form method="POST">
+    <div class="row">
+      <div class="col-md-4 mb-3"><label>Daily car km</label><input name="daily_car_km" class="form-control" value="0"></div>
+      <div class="col-md-4 mb-3"><label>Daily bus km</label><input name="daily_bus_km" class="form-control" value="0"></div>
+      <div class="col-md-4 mb-3"><label>Daily train km</label><input name="daily_train_km" class="form-control" value="0"></div>
+      <div class="col-md-4 mb-3"><label>Weekly flight hours</label><input name="weekly_flight_hours" class="form-control" value="0"></div>
+      <div class="col-md-4 mb-3"><label>Monthly electricity (kWh)</label><input name="monthly_electricity_kwh" class="form-control" value="0"></div>
+      <div class="col-md-4 mb-3"><label>Meals per day</label><input name="meals_per_day" class="form-control" value="3"></div>
+      <div class="col-md-6 mb-3"><label>Meat meal ratio (0-1)</label><input name="meat_meal_ratio" class="form-control" value="0.5"></div>
+      <div class="col-md-6 mb-3"><label>Trees planted (count)</label><input name="trees_planted" class="form-control" value="0"></div>
+    </div>
+    <button class="btn btn-success mt-3">Calculate</button>
+  </form>
+</div>
+{% endblock %}

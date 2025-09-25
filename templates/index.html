@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center">
+  <div class="col-md-6">
+    <h1 class="display-5">Understand your footprint — simple, friendly, useful.</h1>
+    <p class="lead">A few quick questions about your daily life and we’ll show an easy-to-read carbon estimate and tips you can actually use.</p>
+    <a href="{{ url_for('register') }}" class="btn btn-success btn-lg">Get started — it’s free</a>
+  </div>
+  <div class="col-md-6 text-center">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60" class="img-fluid rounded shadow" alt="planet">
+  </div>
+</div>
+{% endblock %}

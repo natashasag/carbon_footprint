@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <div class="card p-4 shadow">
+      <h3>Your annual CO₂ estimate: <span class="text-success">{{ result.total_kg_co2_per_year }} kg</span></h3>
+      <h5>Category: <span class="badge {% if result.category=='Good Footprint' %}bg-success{% elif result.category=='Moderate Footprint' %}bg-warning{% else %}bg-danger{% endif %}">{{ result.category }}</span></h5>
+      <canvas id="breakdownChart" height="120"></canvas>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 shadow">
+      <h5>Friendly tips</h5>
+      {% if result.category == 'Dirty Footprint' %}
+        <p>Try cutting a few short car trips, swap 2-3 meals to vegetarian, and consider planting trees.</p>
+      {% elif result.category == 'Moderate Footprint' %}
+        <p>Good work — a few small changes can make this much better. Try saving electricity and combining trips.</p>
+      {% else %}
+        <p>Nice! You're already doing well. Keep it up and share with friends.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+  const breakdown = {{ breakdown | tojson }};
+  const labels = Object.keys(breakdown);
+  const data = Object.values(breakdown);
+  const ctx = document.getElementById('breakdownChart').getContext('2d');
+  new Chart(ctx, { type: 'bar', data: { labels, datasets: [{ label: 'kg CO2/year', data }] } });
+</script>
+{% endblock %}
